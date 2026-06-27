@@ -1,154 +1,146 @@
-// =====================================
-// Babar TEC Framework V1
-// Ultra Premium Professional script.js
-// =====================================
+// ===============================
+// BABAR TEC FRAMEWORK V1
+// SCRIPT.JS (FINAL)
+// ===============================
 
-(function () {
-    "use strict";
+// Loader
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    setTimeout(() => {
+        loader.style.display = "none";
+    }, 1200);
+});
 
-    // ===============================
-    // 1. ELEMENT SELECTORS (SAFE INIT)
-    // ===============================
-    const DOM = {
-        menuBtn: document.querySelector(".menu-btn"),
-        navLinks: document.querySelector(".nav-links"),
-        navbar: document.querySelector(".navbar"),
-        loader: document.querySelector(".loader"),
-        reveal: document.querySelectorAll(".reveal"),
-        form: document.querySelector("form")
-    };
+// ===============================
+// Dark Mode Toggle
+// ===============================
+const themeBtn = document.getElementById("themeBtn");
 
-    // ===============================
-    // 2. MOBILE NAVIGATION SYSTEM
-    // ===============================
-    function initNavigation() {
-        if (!DOM.menuBtn || !DOM.navLinks) return;
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
 
-        DOM.menuBtn.addEventListener("click", () => {
-            DOM.navLinks.classList.toggle("active");
-            DOM.menuBtn.classList.toggle("open");
-        });
+    if (document.body.classList.contains("dark")) {
+        themeBtn.innerHTML = `<i class="fas fa-sun"></i>`;
+    } else {
+        themeBtn.innerHTML = `<i class="fas fa-moon"></i>`;
+    }
+});
 
-        // Close on link click
-        DOM.navLinks.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                DOM.navLinks.classList.remove("active");
-                DOM.menuBtn.classList.remove("open");
+// ===============================
+// Scroll To Top Button
+// ===============================
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+});
+
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+// ===============================
+// Sticky Header Shadow
+// ===============================
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
+    } else {
+        header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.08)";
+    }
+});
+
+// ===============================
+// Contact Form Alert
+// ===============================
+const contactForm = document.querySelector(".contact-form form");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("✅ Message Sent Successfully!");
+        contactForm.reset();
+    });
+}
+
+// ===============================
+// Smooth Scroll (Nav Links)
+// ===============================
+document.querySelectorAll("nav ul li a").forEach(link => {
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop - 80,
+                behavior: "smooth"
             });
-        });
-    }
+        }
+    });
+});
 
-    // ===============================
-    // 3. STICKY NAVBAR SYSTEM
-    // ===============================
-    function initStickyNavbar() {
-        if (!DOM.navbar) return;
+// ===============================
+// Active Nav Highlight
+// ===============================
+const sections = document.querySelectorAll("section");
 
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 60) {
-                DOM.navbar.classList.add("sticky");
-            } else {
-                DOM.navbar.classList.remove("sticky");
-            }
-        });
-    }
+window.addEventListener("scroll", () => {
+    let current = "";
 
-    // ===============================
-    // 4. SMOOTH SCROLL ENGINE
-    // ===============================
-    function initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener("click", function (e) {
-                e.preventDefault();
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
 
-                const target = document.querySelector(this.getAttribute("href"));
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
 
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                }
-            });
-        });
-    }
+    document.querySelectorAll("nav ul li a").forEach(link => {
+        link.classList.remove("active");
 
-    // ===============================
-    // 5. SCROLL REVEAL ANIMATION ENGINE
-    // ===============================
-    function initReveal() {
-        if (!DOM.reveal.length) return;
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
+});
 
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
+// ===============================
+// Scroll Reveal Animation
+// ===============================
+const elements = document.querySelectorAll(
+    ".service-card, .feature-card, .portfolio-card, .price-card, .team-card, .testimonial-card, .stat-box"
+);
 
-            DOM.reveal.forEach(el => {
-                const top = el.getBoundingClientRect().top;
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+});
 
-                if (top < windowHeight - 120) {
-                    el.classList.add("active");
-                }
-            });
-        };
+elements.forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "0.6s ease";
+    observer.observe(el);
+});
 
-        window.addEventListener("scroll", revealOnScroll);
-        revealOnScroll(); // run on load
-    }
-
-    // ===============================
-    // 6. LOADER SYSTEM (PREMIUM UX)
-    // ===============================
-    function initLoader() {
-        if (!DOM.loader) return;
-
-        window.addEventListener("load", () => {
-            DOM.loader.style.transition = "0.5s ease";
-            DOM.loader.style.opacity = "0";
-
-            setTimeout(() => {
-                DOM.loader.style.display = "none";
-            }, 600);
-        });
-    }
-
-    // ===============================
-    // 7. FORM VALIDATION ENGINE
-    // ===============================
-    function initForm() {
-        if (!DOM.form) return;
-
-        DOM.form.addEventListener("submit", (e) => {
-            const inputs = DOM.form.querySelectorAll("input, textarea");
-            let isValid = true;
-
-            inputs.forEach(input => {
-                if (input.hasAttribute("required") && input.value.trim() === "") {
-                    input.style.border = "2px solid red";
-                    isValid = false;
-                } else {
-                    input.style.border = "1px solid #ddd";
-                }
-            });
-
-            if (!isValid) {
-                e.preventDefault();
-                alert("⚠ Please fill all required fields correctly!");
-            }
-        });
-    }
-
-    // ===============================
-    // 8. INIT ALL SYSTEMS
-    // ===============================
-    function init() {
-        initNavigation();
-        initStickyNavbar();
-        initSmoothScroll();
-        initReveal();
-        initLoader();
-        initForm();
-    }
-
-    init();
-
-})();
+// ===============================
+// Console Message
+// ===============================
+console.log("🚀 Babar TEC Framework V1 Loaded Successfully!");
+console.log("👨‍💻 Developed by Babar Akram");
