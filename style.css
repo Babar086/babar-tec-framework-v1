@@ -1,0 +1,685 @@
+/* ===================================
+   BABAR TEC FRAMEWORK V1
+   STYLE.CSS PART 1
+=================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f5f7fb;
+color:#222;
+overflow-x:hidden;
+}
+
+/* Loader */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#0f172a;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+font-size:34px;
+font-weight:700;
+z-index:9999;
+}
+
+/* Header */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#fff;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+z-index:1000;
+}
+
+.logo h2{
+color:#2563eb;
+font-size:30px;
+font-weight:700;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#222;
+font-weight:600;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#2563eb;
+}
+
+.header-buttons button{
+width:45px;
+height:45px;
+border:none;
+border-radius:50%;
+background:#2563eb;
+color:#fff;
+cursor:pointer;
+font-size:18px;
+transition:.3s;
+}
+
+.header-buttons button:hover{
+transform:rotate(180deg);
+}
+
+/* Hero */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:130px 8%;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:#fff;
+}
+
+.hero-content{
+width:50%;
+}
+
+.badge{
+display:inline-block;
+padding:10px 18px;
+background:rgba(255,255,255,.15);
+border-radius:30px;
+margin-bottom:20px;
+}
+
+.hero-content h1{
+font-size:58px;
+line-height:1.3;
+margin-bottom:20px;
+}
+
+.hero-content span{
+color:#ffe600;
+}
+
+.hero-content p{
+line-height:1.8;
+font-size:18px;
+margin-bottom:30px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+}
+
+.btn,
+.btn2{
+padding:14px 35px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn{
+background:#fff;
+color:#2563eb;
+}
+
+.btn2{
+border:2px solid #fff;
+color:#fff;
+}
+
+.btn:hover,
+.btn2:hover{
+transform:translateY(-5px);
+}
+
+.hero-image{
+width:40%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:180px;
+}
+
+/* Statistics */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:80px 8%;
+}
+
+.stat-box{
+background:#fff;
+padding:35px;
+text-align:center;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.stat-box:hover{
+transform:translateY(-10px);
+}
+
+.stat-box h2{
+font-size:42px;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+/* Title */
+
+.title{
+text-align:center;
+font-size:40px;
+color:#2563eb;
+margin-bottom:50px;
+}
+
+/* About */
+
+#about{
+padding:90px 8%;
+}
+
+.about-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.about-card{
+background:#fff;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.about-card h3{
+margin-bottom:20px;
+color:#2563eb;
+}
+
+.about-card p{
+line-height:1.9;
+margin-bottom:20px;
+}
+
+.about-card ul{
+list-style:none;
+}
+
+.about-card ul li{
+padding:12px;
+margin:10px 0;
+background:#eef4ff;
+border-left:5px solid #2563eb;
+border-radius:10px;
+}
+
+/* Services */
+
+#services{
+padding:90px 8%;
+background:#f8fafc;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.service-card{
+background:#fff;
+padding:35px;
+text-align:center;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+}
+
+.service-card i{
+font-size:55px;
+color:#2563eb;
+margin-bottom:20px;
+}
+
+.service-card h3{
+margin-bottom:15px;
+font-size:24px;
+  }
+/* ===================================
+   FEATURES
+=================================== */
+
+#features{
+padding:90px 8%;
+background:#ffffff;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.feature-card{
+background:#f8fafc;
+padding:35px;
+text-align:center;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+background:#2563eb;
+color:#fff;
+}
+
+.feature-card i{
+font-size:55px;
+margin-bottom:20px;
+color:#2563eb;
+}
+
+.feature-card:hover i{
+color:#fff;
+}
+
+/* ===================================
+   PORTFOLIO
+=================================== */
+
+#portfolio{
+padding:90px 8%;
+background:#f5f7fb;
+}
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:25px;
+}
+
+.portfolio-card{
+background:#fff;
+padding:35px;
+text-align:center;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.portfolio-card:hover{
+transform:scale(1.05);
+}
+
+.portfolio-card i{
+font-size:60px;
+color:#2563eb;
+margin-bottom:20px;
+}
+
+/* ===================================
+   PRICING
+=================================== */
+
+#pricing{
+padding:90px 8%;
+background:#ffffff;
+}
+
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.price-card{
+background:#fff;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.price-card.featured{
+background:#2563eb;
+color:#fff;
+transform:scale(1.05);
+}
+
+.price-card h1{
+font-size:50px;
+margin:20px 0;
+}
+
+.price-card p{
+margin:12px 0;
+}
+
+.price-card button{
+margin-top:20px;
+padding:14px 35px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-weight:600;
+}
+
+/* ===================================
+   TEAM
+=================================== */
+
+#team{
+padding:90px 8%;
+background:#f5f7fb;
+}
+
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.team-card{
+background:#fff;
+padding:35px;
+text-align:center;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.team-card i{
+font-size:90px;
+color:#2563eb;
+margin-bottom:20px;
+}
+
+/* ===================================
+   TESTIMONIALS
+=================================== */
+
+#testimonials{
+padding:90px 8%;
+background:#fff;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.testimonial-card{
+background:#f8fafc;
+padding:30px;
+text-align:center;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.testimonial-card:hover{
+transform:translateY(-10px);
+}
+
+/* ===================================
+   FAQ
+=================================== */
+
+#faq{
+padding:90px 8%;
+background:#f5f7fb;
+}
+
+.faq-box{
+background:#fff;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.faq-box h3{
+color:#2563eb;
+margin-top:20px;
+margin-bottom:10px;
+}
+
+/* ===================================
+   CONTACT
+=================================== */
+
+#contact{
+padding:90px 8%;
+background:#fff;
+}
+
+.contact-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.contact-info,
+.contact-form{
+background:#f8fafc;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.contact-info p{
+margin:15px 0;
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:15px;
+margin:12px 0;
+border:1px solid #ddd;
+border-radius:10px;
+}
+
+.contact-form textarea{
+height:150px;
+resize:none;
+}
+
+.contact-form button{
+width:100%;
+padding:15px;
+border:none;
+background:#2563eb;
+color:#fff;
+font-size:17px;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+
+footer{
+background:#0f172a;
+color:#fff;
+text-align:center;
+padding:40px 20px;
+}
+
+footer p{
+margin-top:10px;
+}
+
+/* ===================================
+   WHATSAPP BUTTON
+=================================== */
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+width:60px;
+height:60px;
+background:#25D366;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:30px;
+text-decoration:none;
+box-shadow:0 10px 20px rgba(0,0,0,.25);
+z-index:999;
+}
+
+/* ===================================
+   TOP BUTTON
+=================================== */
+
+#topBtn{
+position:fixed;
+left:20px;
+bottom:20px;
+width:55px;
+height:55px;
+border:none;
+background:#2563eb;
+color:#fff;
+border-radius:50%;
+font-size:20px;
+cursor:pointer;
+display:none;
+}
+
+/* ===================================
+   DARK MODE
+=================================== */
+
+.dark{
+background:#0f172a;
+color:#fff;
+}
+
+.dark header,
+.dark .about-card,
+.dark .service-card,
+.dark .feature-card,
+.dark .portfolio-card,
+.dark .price-card,
+.dark .team-card,
+.dark .testimonial-card,
+.dark .faq-box,
+.dark .contact-info,
+.dark .contact-form,
+.dark .stat-box{
+background:#1e293b;
+color:#fff;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media(max-width:992px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-content,
+.hero-image{
+width:100%;
+}
+
+.hero-image{
+margin-top:40px;
+font-size:130px;
+}
+
+nav{
+display:none;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:40px;
+}
+
+.title{
+font-size:32px;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.btn,
+.btn2{
+text-align:center;
+}
+
+}
+
+@media(max-width:500px){
+
+.hero-content h1{
+font-size:32px;
+}
+
+.hero-image{
+font-size:90px;
+}
+
+.stat-box h2{
+font-size:34px;
+}
+
+}
